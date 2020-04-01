@@ -1,0 +1,19 @@
+trigger:
+- master
+
+# pr:
+# - master
+
+pool:
+  name: 'bedrock-pool'
+
+steps:
+
+  - script: |
+      echo "az cli version" 
+      az --version
+      echo "fabrikate version" 
+      fab version
+      echo "helm version"
+      helm version
+    displayName: "Echo stuff"
