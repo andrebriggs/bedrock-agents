@@ -20,7 +20,9 @@ RUN apt-get update \
     gnupg2 \
     netcat \
     wget \
-    unzip
+    unzip \
+    sudo
+    
 
 # Install jq-1.6 (beta)
 RUN wget -q https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64 \

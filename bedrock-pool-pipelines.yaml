@@ -10,6 +10,11 @@ pool:
 steps:
 
   - script: |
+      echo $(pwd)
+      ls -la
+      NOW=$(date +"%m-%d-%Y-%H-%M-%S")
+      touch "README-$NOW.md"
+      ls -la
       echo "az cli version" 
       az --version
 
@@ -27,5 +32,5 @@ steps:
       terraform version
 
       echo "Can we access build.sh?"
-      bedrock_build
+      bedrock_build 1
     displayName: "Echo stuff"
