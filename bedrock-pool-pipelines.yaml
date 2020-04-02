@@ -25,4 +25,7 @@ steps:
 
       echo "terraform version"
       terraform version
+
+      echo "Can we access build.sh?"
+      bedrock_build
     displayName: "Echo stuff"
