@@ -60,6 +60,12 @@ RUN curl -LO "https://github.com/CatalystCode/spk/releases/download/v0.5.8/spk-l
     && mv spk-linux /usr/local/bin/spk \
     && chmod +x /usr/local/bin/spk 
 
+# Install Bedrock Build.sh
+RUN curl -LO "https://raw.githubusercontent.com/Microsoft/bedrock/master/gitops/azure-devops/build.sh" > build.sh \
+    && mv build.sh /usr/local/bin/build.sh \
+    && chmod +x /usr/local/bin/build.sh \
+    && sudo ln -s /usr/local/bin/build.sh /usr/local/bin/bedrock_build
+
 # Install AZ CLI
 RUN curl -sL https://aka.ms/InstallAzureCLIDeb | bash
 RUN echo "AZURE_EXTENSION_DIR=/usr/local/lib/azureExtensionDir" | tee -a /etc/environment \
