@@ -12,7 +12,7 @@ steps:
   - script: |
       echo "az cli version" 
       az --version
-      
+
       echo "fabrikate version" 
       fab version
 
@@ -21,7 +21,7 @@ steps:
       helm version
       
       echo "spk version"
-      spk version
+      spk --version
 
       echo "terraform version"
       terraform version
