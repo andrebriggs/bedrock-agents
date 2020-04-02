@@ -28,11 +28,11 @@ RUN wget -q https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64 \
     && mv jq-linux64 /usr/bin/jq
 
 # Install terraform
-# RUN wget -q https://releases.hashicorp.com/terraform/0.12.6/terraform_0.12.6_linux_amd64.zip \
-#     && unzip terraform_0.12.6_linux_amd64.zip \
-#     && chmod +x terraform \
-#     && mv terraform /usr/local/bin/ \
-#     && rm terraform_0.12.6_linux_amd64.zip
+RUN wget -q https://releases.hashicorp.com/terraform/0.12.6/terraform_0.12.6_linux_amd64.zip \
+    && unzip terraform_0.12.6_linux_amd64.zip \
+    && chmod +x terraform \
+    && mv terraform /usr/local/bin/ \
+    && rm terraform_0.12.6_linux_amd64.zip
 
 # Install kubectl
 # RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl \
@@ -54,27 +54,23 @@ RUN curl -LO 'https://github.com/microsoft/fabrikate/releases/download/0.15.0/fa
     && chmod +x fab \
     && mv ./fab /usr/local/bin/fab
 
+# Install Bedrock CLI
+RUN curl -LO "https://github.com/CatalystCode/spk/releases/download/v0.5.8/spk-linux" \
+    && mkdir spk \
+    && mv spk-linux /usr/local/bin/spk \
+    && chmod +x /usr/local/bin/spk 
+
 # Install AZ CLI
 RUN curl -sL https://aka.ms/InstallAzureCLIDeb | bash
 RUN echo "AZURE_EXTENSION_DIR=/usr/local/lib/azureExtensionDir" | tee -a /etc/environment \
     && mkdir -p /usr/local/lib/azureExtensionDir
 
 # Install az extensions
-RUN az extension add --name application-insights
 RUN az extension add --name azure-devops
 
-# Install powershell core
-# RUN wget -q https://packages.microsoft.com/config/ubuntu/16.04/packages-microsoft-prod.deb \
-#     && dpkg -i packages-microsoft-prod.deb \
-#     && apt-get update \
-#     && apt-get install -y powershell
-
-# Install dotnet core sdk, this fix powershell core handling of cert trust chain problem
-# RUN apt-get install -y dotnet-sdk-3.0
-
 # add basic git config
-RUN git config --global user.email "build-agent@microsoft.com" && \
-    git config --global user.name "Build Agent" && \
+RUN git config --global user.email "bedrock-build-agent@microsoft.com" && \
+    git config --global user.name "Bedrock Build Agent" && \
     git config --global push.default matching
 
 # Install build agent service

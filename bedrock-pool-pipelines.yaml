@@ -12,8 +12,17 @@ steps:
   - script: |
       echo "az cli version" 
       az --version
+      
       echo "fabrikate version" 
       fab version
+
       echo "helm version"
+      helm init --client-only
       helm version
+      
+      echo "spk version"
+      spk version
+
+      echo "terraform version"
+      terraform version
     displayName: "Echo stuff"
