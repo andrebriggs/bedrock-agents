@@ -22,6 +22,7 @@
 - The ability to canary test new versions of Bedrock tooling
 - The ability to streamline secrets management
 
-## Steps 
+## Steps
+
 1. Login to your ACR `az acr login --name <ACR NAME>`
 2. Run `az acr build -r <ACR NAME> --image bedrock-build-agent:dev .`
