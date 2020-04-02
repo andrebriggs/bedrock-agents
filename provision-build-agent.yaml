@@ -16,9 +16,9 @@ stages:
         az login --service-principal --username "$(SP_CLIENT_ID)" --password "$(SP_CLIENT_PASS)" --tenant "$(TENANT_ID)"
         
         az acr login --name $(ACR_NAME)
-        az acr build -r $(ACR_NAME) --image bedrock-build-agent:dev 
-        
-        bash setup-build-agent.sh
+        az acr build -r $(ACR_NAME) --image bedrock-build-agent:dev .
+
+        bash ./setup-build-agent.sh
       displayName: "Docker build"
       failOnStderr: true
       # env:
