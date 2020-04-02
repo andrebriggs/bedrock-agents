@@ -18,6 +18,12 @@ stages:
         az acr login --name $(ACR_NAME)
         az acr build -r $(ACR_NAME) --image bedrock-build-agent:dev .
 
+        AZDO_PAT=$(AZDO_PAT)
+        SUBSCRIPTION_ID=$(SUBSCRIPTION_ID)
+        TENANT_ID=$(TENANT_ID)
+        SP_CLIENT_ID=$(SP_CLIENT_ID)
+        SP_CLIENT_PASS=$(SP_CLIENT_PASS)
+        
         bash ./setup-build-agent.sh
       displayName: "Docker build"
       failOnStderr: true
