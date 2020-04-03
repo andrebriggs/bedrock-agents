@@ -42,9 +42,9 @@ steps:
       echo "AZ_SERVICE_PRINCIPAL is $AZ_SERVICE_PRINCIPAL"   
 
       echo "Can we access bedrock_build?"
-      VERIFY_ONLY=1
-      REPO="https://dev.azure.com/abrig/spk/_git/fabrikam-manifests"
-      HLD_PATH="https://dev.azure.com/abrig/spk/_git/fabrikam-manifests"
+      export VERIFY_ONLY=1
+      export REPO="https://dev.azure.com/abrig/spk/_git/fabrikam-manifests"
+      export HLD_PATH="https://dev.azure.com/abrig/spk/_git/fabrikam-manifests"
 
       chmod +x bedrock-build.sh
       bash bedrock-build.sh
