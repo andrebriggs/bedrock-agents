@@ -1,5 +1,7 @@
 # Bedrock Build Agent
 
+![diagram](./images/Agents.png)
+
 ## 🎁 What's inside? 🎁
 
 - A Dockerfile that steps up an Azure Pipelines build agent environment with:
