@@ -34,7 +34,7 @@
 
 - Custom build agents allow Bedrock infrastructure to become a layering exercise. When customers can blend their own CI/CD tooling with Bedrock components then Bedrock blends into the background. Any customer who wants to deploy Bedrock as scale (or earnestness) should be using this method.
 
-- This example places the build agents on ACI but a customer coudl just as easily set this up on AKS. The only additional complexities would be creating a Helm chart, Fabrikate defintion, and dealing with potential secrets.
+- This example places the build agents on ACI but a customer could just as easily set this up on AKS. The only additional complexities would be creating a Helm chart, Fabrikate defintion, and dealing with potential secrets.
 
 ## Customer POV
 
