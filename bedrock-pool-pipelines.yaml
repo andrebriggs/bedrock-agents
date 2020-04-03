@@ -44,7 +44,7 @@ steps:
       echo "Can we access bedrock_build?"
       export VERIFY_ONLY=1
       export REPO="https://dev.azure.com/abrig/spk/_git/fabrikam-manifests"
-      export HLD_PATH="https://dev.azure.com/abrig/spk/_git/fabrikam-manifests"
+      export HLD_PATH="https://dev.azure.com/abrig/spk/_git/fabrikam-hld"
 
       chmod +x bedrock-build.sh
       bash bedrock-build.sh
