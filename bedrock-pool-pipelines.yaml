@@ -47,5 +47,5 @@ steps:
       HLD_PATH="https://dev.azure.com/abrig/spk/_git/fabrikam-manifests"
 
       chmod +x bedrock-build.sh
-      bedrock-build.sh
+      bash bedrock-build.sh
     displayName: "Echo stuff"
