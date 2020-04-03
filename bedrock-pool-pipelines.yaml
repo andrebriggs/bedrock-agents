@@ -31,6 +31,12 @@ steps:
       echo "terraform version"
       terraform version
 
-      echo "Can we access build.sh?"
-      bedrock_build 1
+      echo "Can we access ENV VARS?"
+      echo $AZP_URL
+      echo $AZP_POOL
+      echo $AZP_AGENT_NAME
+      echo $ARM_SUBSCRIPTION_ID
+      
+      # echo "Can we access build.sh?"
+      # bedrock_build 1
     displayName: "Echo stuff"
