@@ -28,6 +28,7 @@ ENV jq_version=1.6
 ENV tf_version=0.12.6
 ENV helm_version=v2.16.1
 ENV fab_version=0.17.3
+ENV spk_version=0.5.8
 
 # Install jq-1.6 (beta)
 RUN wget -q "https://github.com/stedolan/jq/releases/download/jq-${jq_version}/jq-linux64" \
@@ -62,7 +63,7 @@ RUN curl -LO "https://github.com/microsoft/fabrikate/releases/download/${fab_ver
     && mv ./fab /usr/local/bin/fab
 
 # Install Bedrock CLI
-RUN curl -LO "https://github.com/CatalystCode/spk/releases/download/v0.5.8/spk-linux" \
+RUN curl -LO "https://github.com/CatalystCode/spk/releases/download/v${spk_version}/spk-linux" \
     && mkdir spk \
     && mv spk-linux /usr/local/bin/spk \
     && chmod +x /usr/local/bin/spk 
