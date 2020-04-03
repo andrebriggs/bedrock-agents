@@ -46,6 +46,6 @@ steps:
       export REPO="https://dev.azure.com/abrig/spk/_git/fabrikam-manifests"
       export HLD_PATH="https://dev.azure.com/abrig/spk/_git/fabrikam-hld"
 
-      chmod +x bedrock-build.sh
-      bash bedrock-build.sh
-    displayName: "Echo stuff"
+      #chmod +x bedrock-build.sh
+      bedrock-build
+    displayName: "Manifest YAML Generation Pipeline"
