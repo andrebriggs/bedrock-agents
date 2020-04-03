@@ -40,6 +40,8 @@ steps:
       echo "Can we access SECURE ENV VARS?"
       echo "AZP_TOKEN is $AZP_TOKEN"
       echo "AZ_SERVICE_PRINCIPAL is $AZ_SERVICE_PRINCIPAL"
+      echo "Running cat /azp/.token"
+      cat /azp/.token
 
       # echo "Can we access build.sh?"
       # bedrock_build 1
