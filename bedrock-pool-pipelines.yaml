@@ -44,5 +44,6 @@ steps:
       echo "Can we access bedrock_build?"
       VERIFY_ONLY=1
       REPO="https://dev.azure.com/abrig/spk/_git/fabrikam-manifests"
-      sh bedrock_build.sh
+      chmod +x ./bedrock_build.sh
+      sh ./bedrock_build.sh
     displayName: "Echo stuff"
