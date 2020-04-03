@@ -10,36 +10,36 @@ pool:
 steps:
 
   - script: |
-      echo $(pwd)
-      ls -la
-      NOW=$(date +"%m-%d-%Y-%H-%M-%S")
-      touch "README-$NOW.md"
-      ls -la
-      echo "az cli version" 
-      az --version
+      # echo $(pwd)
+      # ls -la
+      # NOW=$(date +"%m-%d-%Y-%H-%M-%S")
+      # touch "README-$NOW.md"
+      # ls -la
+      # echo "az cli version" 
+      # az --version
 
-      echo "fabrikate version" 
-      fab version
+      # echo "fabrikate version" 
+      # fab version
 
-      echo "helm version"
-      helm init --client-only
-      helm version
+      # echo "helm version"
+      # helm init --client-only
+      # helm version
       
-      echo "spk version"
-      spk --version
+      # echo "spk version"
+      # spk --version
 
-      echo "terraform version"
-      terraform version
+      # echo "terraform version"
+      # terraform version
 
-      echo "Can we access ENV VARS?"
-      echo "AZP_URL is $AZP_URL"
-      echo "AZP_POOL is $AZP_POOL"
-      echo "AZP_AGENT_NAME is $AZP_AGENT_NAME"
-      echo "ARM_SUBSCRIPTION_ID is $ARM_SUBSCRIPTION_ID"
+      # echo "Can we access ENV VARS?"
+      # echo "AZP_URL is $AZP_URL"
+      # echo "AZP_POOL is $AZP_POOL"
+      # echo "AZP_AGENT_NAME is $AZP_AGENT_NAME"
+      # echo "ARM_SUBSCRIPTION_ID is $ARM_SUBSCRIPTION_ID"
 
-      echo "Can we access SECURE ENV VARS?"
-      echo "AZP_TOKEN is $AZP_TOKEN"
-      echo "AZ_SERVICE_PRINCIPAL is $AZ_SERVICE_PRINCIPAL"   
+      # echo "Can we access SECURE ENV VARS?"
+      # echo "AZP_TOKEN is $AZP_TOKEN"
+      # echo "AZ_SERVICE_PRINCIPAL is $AZ_SERVICE_PRINCIPAL"   
 
       echo "Can we access bedrock_build?"
       export VERIFY_ONLY=0
