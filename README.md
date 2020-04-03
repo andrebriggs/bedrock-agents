@@ -10,6 +10,7 @@
   - Azure CLI (with Azure DevOps extension)
   - Terraform
   - Scripts to connect to an Azure DevOps organization and register as a custom build agent
+- A script to create necessary variables for Azure Pipelines
 - A script to build the Dockerfile and push to ACR
 - A script to deploy custom build agent image to Azure Container Instance with secure environment variables
 - An Azure Pipelines yaml file that will validate that existence of aforementioned applications in the custom build agent
@@ -24,5 +25,19 @@
 
 ## Steps
 
-1. Login to your ACR `az acr login --name <ACR NAME>`
-2. Run `az acr build -r <ACR NAME> --image bedrock-build-agent:dev .`
+1. Edit and execute `setup-variable-group.sh`
+2. Create a pipeline for `build-image.yaml`
+3. Create a pipeline for `provision-build-agent.yaml`
+4. Create a pipeline for `bedrock-pool-pipelines.yaml`
+
+## Additional Thoughts
+
+- Custom build agents allow Bedrock infrastructure to become a layering exercise. When customers can blend their own CI/CD tooling with Bedrock components then Bedrock blends into the background. Any customer who wants to deploy Bedrock as scale (or earnestness) should be using this method.
+
+- This example places the build agents on ACI but a customer coudl just as easily set this up on AKS. The only additional complexities would be creating a Helm chart, Fabrikate defintion, and dealing with potential secrets.
+
+## Customer POV
+
+- An Operations team gets to control the secrets. They can control building of an image that has particular secrets in it. The Ops teams can revoke the secrets at any time, rendering a image useless. Of they want to rotate secrets, all it takes is an ACI restart.
+
+- A customer can canary test new versions of Bedrock tooling while running theoir existing setups side by side. This is useful for organizations to be able to move at thier own pace when adopting OSS.
