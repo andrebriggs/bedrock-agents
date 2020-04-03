@@ -2,7 +2,9 @@
 
 ![diagram](./images/Agents.png)
 
-## 🎁 What's inside? 🎁
+This repository is a working example of a complimentary method to practice Bedrock principles. Instead of attaching boilerplate Bedrock components on to pipeline that must be fetched each run, instead we package these items in a Docker image along with environment variables on a custom Azure Pipelines build agent. This eliminates the need to download components each pipeline run and allows for tigher coupling of a customers tools with Bedrock.
+
+## What's inside? 🎁
 
 - A Dockerfile that steps up an Azure Pipelines build agent environment with:
   - Helm
@@ -17,7 +19,7 @@
 - A script to deploy custom build agent image to Azure Container Instance with secure environment variables
 - An Azure Pipelines yaml file that will validate that existence of aforementioned applications in the custom build agent
 
-## 🍾 What this unlocks 🍾
+## What this unlocks 🍾
 
 - The ability to pin specific versions of tooling in the Bedrock CI/CD infrastructure.
 - The ability to run Bedrock workflows in a restricted environment
