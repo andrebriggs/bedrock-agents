@@ -42,7 +42,7 @@ steps:
       echo "AZ_SERVICE_PRINCIPAL is $AZ_SERVICE_PRINCIPAL"   
 
       echo "Can we access bedrock_build?"
-      export VERIFY_ONLY=1
+      export VERIFY_ONLY=0
       export REPO="https://dev.azure.com/abrig/spk/_git/fabrikam-manifests"
       export HLD_PATH="https://dev.azure.com/abrig/spk/_git/fabrikam-hld"
 
