@@ -12,4 +12,3 @@ steps:
     az acr login --name $(ACR_NAME)
     az acr build -r $(ACR_NAME) --image bedrock-build-agent:dev .
   displayName: "Docker Build to ACR"
-  failOnStderr: true
