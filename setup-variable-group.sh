@@ -20,7 +20,7 @@ vg_id=$(echo "$vg_result"  | jq -r --arg vg_name "$vg_name" '.[] | select(.name 
 echo "variable group to delete is $vg_id"
 az pipelines variable-group delete --id "$vg_id" --yes --org $AZDO_ORG_URL -p $AZDO_PROJECT_NAME
 
-CREATE_RESULT=$(az pipelines variable-group create --name "agent-build-vg" \
+CREATE_RESULT=$(az pipelines variable-group create --name $vg_name \
     --org $AZDO_ORG_URL \
     -p $AZDO_PROJECT_NAME \
     --variables \
