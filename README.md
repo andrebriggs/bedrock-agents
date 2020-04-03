@@ -6,7 +6,7 @@
   - Helm
   - Fabrikate
   - Bedrock CLI (SPK)
-  - Bedrock `build.sh` file (globally symlinked)
+  - Custom version of Bedrock [build.sh](https://raw.githubusercontent.com/microsoft/bedrock/master/gitops/azure-devops/build.sh) file (globally symlinked)
   - Azure CLI (with Azure DevOps extension)
   - Terraform
   - Scripts to connect to an Azure DevOps organization and register as a custom build agent
