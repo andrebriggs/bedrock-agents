@@ -39,10 +39,10 @@ steps:
 
       echo "Can we access SECURE ENV VARS?"
       echo "AZP_TOKEN is $AZP_TOKEN"
-      echo "AZ_SERVICE_PRINCIPAL is $AZ_SERVICE_PRINCIPAL"
-      echo "Running cat /azp/.token"
-      cat /azp/.token
+      echo "AZ_SERVICE_PRINCIPAL is $AZ_SERVICE_PRINCIPAL"   
 
-      # echo "Can we access build.sh?"
-      # bedrock_build 1
+      echo "Can we access bedrock_build?"
+      VERIFY_ONLY=1
+      REPO="https://dev.azure.com/abrig/spk/_git/fabrikam-manifests"
+      sh bedrock_build.sh
     displayName: "Echo stuff"
