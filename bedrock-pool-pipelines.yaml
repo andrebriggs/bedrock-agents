@@ -47,5 +47,5 @@ steps:
       export HLD_PATH="https://dev.azure.com/abrig/spk/_git/fabrikam-hld"
 
       #chmod +x bedrock-build.sh
-      bedrock-build
+      bedrock_build
     displayName: "Manifest YAML Generation Pipeline"
