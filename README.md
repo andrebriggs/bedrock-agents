@@ -1,6 +1,6 @@
 # Bedrock Build Agent
 
-## What's inside? 🎁🎁🎁
+## 🎁 What's inside? 🎁
 
 - A Dockerfile that steps up an Azure Pipelines build agent environment with:
   - Helm
@@ -15,7 +15,7 @@
 - A script to deploy custom build agent image to Azure Container Instance with secure environment variables
 - An Azure Pipelines yaml file that will validate that existence of aforementioned applications in the custom build agent
 
-## What this unlocks 🍾🍾🍾
+## 🍾 What this unlocks 🍾
 
 - The ability to pin specific versions of tooling in the Bedrock CI/CD infrastructure.
 - The ability to run Bedrock workflows in a restricted environment
