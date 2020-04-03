@@ -46,5 +46,5 @@ steps:
       REPO="https://dev.azure.com/abrig/spk/_git/fabrikam-manifests"
 
       chmod +x bedrock-build.sh
-      sh bedrock-build.sh
+      bedrock-build.sh
     displayName: "Echo stuff"

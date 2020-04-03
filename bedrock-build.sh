@@ -214,9 +214,10 @@ function verify_pull_request_and_merge() {
     git_push
 }
 
-echo "argument is ${1}"
 if [[ "$VERIFY_ONLY" == "1" ]]; then
+    echo "Executing verify_pull_request"
     verify_pull_request
 else
+    echo "Executing verify_pull_request_and_merge"
     verify_pull_request_and_merge
 fi
