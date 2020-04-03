@@ -8,13 +8,8 @@ steps:
     # Login to Azure 
     echo "az login --service-principal --username $(SP_CLIENT_ID) --password $(SP_CLIENT_PASS) --tenant $(TENANT_ID)"
     az login --service-principal --username "$(SP_CLIENT_ID)" --password "$(SP_CLIENT_PASS)" --tenant "$(TENANT_ID)"
-    
-    export AZDO_PAT=$(AZDO_PAT)
-    export SUBSCRIPTION_ID=$(SUBSCRIPTION_ID)
-    export TENANT_ID=$(TENANT_ID)
-    export SP_CLIENT_ID=$(SP_CLIENT_ID)
-    export SP_CLIENT_PASS=$(SP_CLIENT_PASS)
 
-    bash ./setup-build-agent.sh
-  displayName: "Deploy Agent to ACI"
+    az acr login --name $(ACR_NAME)
+    az acr build -r $(ACR_NAME) --image bedrock-build-agent:dev .
+  displayName: "Docker Build to ACR"
   failOnStderr: true
