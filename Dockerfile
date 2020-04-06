@@ -23,7 +23,6 @@ RUN apt-get update \
     unzip \
     sudo
     
-
 ENV jq_version=1.6
 ENV tf_version=0.12.6
 ENV helm_version=v2.16.1
