@@ -62,7 +62,7 @@ RUN curl -LO "https://github.com/microsoft/fabrikate/releases/download/${fab_ver
     && mv ./fab /usr/local/bin/fab
 
 # Install Bedrock CLI
-RUN curl -LO "https://github.com/CatalystCode/spk/releases/download/v${spk_version}/spk-linux" \
+RUN curl -LO "https://github.com/microsoft/bedrock-cli/releases/download/v${spk_version}/spk-linux" \
     && mkdir spk \
     && mv spk-linux /usr/local/bin/spk \
     && chmod +x /usr/local/bin/spk 
