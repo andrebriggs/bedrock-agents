@@ -27,7 +27,7 @@ ENV jq_version=1.6
 ENV tf_version=0.12.6
 ENV helm_version=v2.16.1
 ENV fab_version=0.17.3
-ENV spk_version=0.5.8
+ENV spk_version=0.6.2
 
 # Install jq-1.6 (beta)
 RUN wget -q "https://github.com/stedolan/jq/releases/download/jq-${jq_version}/jq-linux64" \
