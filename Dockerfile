@@ -27,7 +27,7 @@ ENV jq_version=1.6
 ENV tf_version=0.12.6
 ENV helm_version=v2.16.1
 ENV fab_version=0.17.3
-ENV spk_version=0.6.2
+ENV bedrock_version=0.6.4
 
 # Install jq-1.6 (beta)
 RUN wget -q "https://github.com/stedolan/jq/releases/download/jq-${jq_version}/jq-linux64" \
@@ -62,10 +62,10 @@ RUN curl -LO "https://github.com/microsoft/fabrikate/releases/download/${fab_ver
     && mv ./fab /usr/local/bin/fab
 
 # Install Bedrock CLI
-RUN curl -LO "https://github.com/microsoft/bedrock-cli/releases/download/v${spk_version}/spk-linux" \
-    && mkdir spk \
-    && mv spk-linux /usr/local/bin/spk \
-    && chmod +x /usr/local/bin/spk 
+RUN curl -LO "https://github.com/microsoft/bedrock-cli/releases/download/v${bedrock_version}/bedrock-linux" \
+    && mkdir bedrock \
+    && mv bedrock-linux /usr/local/bin/bedrock \
+    && chmod +x /usr/local/bin/bedrock 
 
 # Install Bedrock Build.sh
 # RUN curl -LO "https://raw.githubusercontent.com/Microsoft/bedrock/master/gitops/azure-devops/build.sh" > build.sh \
