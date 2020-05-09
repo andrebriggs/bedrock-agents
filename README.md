@@ -8,8 +8,8 @@ This repository is a working example of a complimentary method to practice Bedro
 
 - A Dockerfile that steps up an Azure Pipelines build agent environment with:
   - Helm
-  - Fabrikate
-  - Bedrock CLI (SPK)
+  - [Fabrikate](https://github.com/microsoft/Fabrikate)
+  - [Bedrock CLI](https://github.com/microsoft/bedrock-cli)
   - Custom version of Bedrock [build.sh](https://raw.githubusercontent.com/microsoft/bedrock/master/gitops/azure-devops/build.sh) file (globally symlinked)
   - Azure CLI (with Azure DevOps extension)
   - Terraform
