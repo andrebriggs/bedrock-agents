@@ -6,14 +6,14 @@ This repository is a working example of a complimentary method to practice Bedro
 
 ## What's inside? 🎁
 
-- A Dockerfile that steps up an Azure Pipelines build agent environment with:
+- A Dockerfile that steps up a Bedrock environment with:
   - Helm
   - [Fabrikate](https://github.com/microsoft/Fabrikate)
   - [Bedrock CLI](https://github.com/microsoft/bedrock-cli)
   - Custom version of Bedrock [build.sh](https://raw.githubusercontent.com/microsoft/bedrock/master/gitops/azure-devops/build.sh) file (globally symlinked)
   - Azure CLI (with Azure DevOps extension)
   - Terraform
-  - Scripts to connect to an Azure DevOps organization and register as a custom build agent
+  - Optionally scripts to connect to an Azure DevOps organization and register as a custom build agent
 - A script to create necessary variables for Azure Pipelines
 - A script to build the Dockerfile and push to ACR
 - A script to deploy custom build agent image to Azure Container Instance with secure environment variables
@@ -28,6 +28,24 @@ This repository is a working example of a complimentary method to practice Bedro
 - The ability to streamline secrets management
 
 ## Steps
+
+### For Development
+To build for development:
+
+  `docker build -t bedrock-dev .`
+
+To run for development:
+
+  `docker run -ti --rm bedrock-dev`
+
+To attach a local volume (e.g. `~/MyLocalDir/`) and map to Docker directory (e.g. `/home/MyDockerDir`):
+
+  `docker run --volume ~/MyLocalDir/:/home/MyDockerDir -ti --rm bedrock-dev`
+
+<!-- To build as a build agent:
+  `docker build -t bedrock-dev-agent --build-arg AGENT=1 .` -->
+### For Build Agent
+To build and run as an Azure DevOps Build Agent:
 
 1. Edit and execute `setup-variable-group.sh`
 2. Create a pipeline for `build-image.yaml`

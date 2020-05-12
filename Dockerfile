@@ -22,12 +22,15 @@ RUN apt-get update \
     wget \
     unzip \
     sudo
-    
+
+# By default this is a developement image
+ARG AGENT=0
+
 ENV jq_version=1.6
 ENV tf_version=0.12.6
 ENV helm_version=v2.16.1
 ENV fab_version=0.17.3
-ENV bedrock_version=0.6.4
+ENV bedrock_version=0.6.5
 
 # Install jq-1.6 (beta)
 RUN wget -q "https://github.com/stedolan/jq/releases/download/jq-${jq_version}/jq-linux64" \
@@ -42,11 +45,11 @@ RUN wget -q "https://releases.hashicorp.com/terraform/${tf_version}/terraform_${
     && rm "terraform_${tf_version}_linux_amd64.zip"
 
 # Install kubectl
-# RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl \
-#     && chmod +x kubectl \
-#     && mv ./kubectl /usr/local/bin/kubectl
+RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl \
+    && chmod +x kubectl \
+    && mv ./kubectl /usr/local/bin/kubectl
 
-# Install helm TODO use v2.16.1
+# Install helm
 RUN curl -LO "https://get.helm.sh/helm-${helm_version}-linux-amd64.tar.gz" \
     && tar -zxvf "helm-${helm_version}-linux-amd64.tar.gz" \
     && chmod +x ./linux-amd64/helm \
@@ -63,7 +66,6 @@ RUN curl -LO "https://github.com/microsoft/fabrikate/releases/download/${fab_ver
 
 # Install Bedrock CLI
 RUN curl -LO "https://github.com/microsoft/bedrock-cli/releases/download/v${bedrock_version}/bedrock-linux" \
-    && mkdir bedrock \
     && mv bedrock-linux /usr/local/bin/bedrock \
     && chmod +x /usr/local/bin/bedrock 
 
@@ -91,6 +93,9 @@ RUN git config --global user.email "bedrock-build-agent@microsoft.com" && \
     git config --global user.name "Bedrock Build Agent" && \
     git config --global push.default matching
 
+# Clean up 
+RUN rm -rf /tmp
+
 # Install build agent service
 WORKDIR /azp
 
@@ -101,4 +106,5 @@ COPY ./start-once.sh .
 RUN chmod +x start.sh
 RUN chmod +x start-once.sh
 
-CMD ["./start-once.sh"]
+WORKDIR /
+CMD if [ "$AGENT" = 1 ] ; then ["./azp/start-once.sh"] ; else echo "Starting Bedrock development container..."; fi
